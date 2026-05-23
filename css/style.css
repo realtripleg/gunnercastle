@@ -117,6 +117,12 @@ p + p { margin-top: 1rem; }
 .nav__links {
   display: flex;
   gap: 2rem;
+  align-items: center;
+}
+
+.nav__links li {
+  display: flex;
+  align-items: center;
 }
 
 .nav__links a {
@@ -161,21 +167,30 @@ p + p { margin-top: 1rem; }
   flex-shrink: 0;
 }
 
-.nav__toggle span,
+.nav__toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  position: relative;
+  top: 0;
+  transition: var(--transition);
+}
+
 .nav__toggle span::before,
 .nav__toggle span::after {
+  content: '';
   display: block;
   width: 24px;
   height: 2px;
   background: var(--color-text);
   position: absolute;
-  left: 10px;
+  left: 0;
   transition: var(--transition);
 }
 
-.nav__toggle span { top: 21px; }
-.nav__toggle span::before { content: ''; top: -7px; }
-.nav__toggle span::after { content: ''; top: 7px; }
+.nav__toggle span::before { top: -7px; }
+.nav__toggle span::after { top: 7px; }
 
 .nav__toggle[aria-expanded="true"] span { background: transparent; }
 .nav__toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
